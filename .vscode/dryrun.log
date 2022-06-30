@@ -1,0 +1,8 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/ibenmain/Desktop/minishell'
+cc -Wall -Wextra -Werror -c main.c -o main.o
+cc -Wall -Wextra -Werror -c minishell.c -o minishell.o
+cc -Wall -Wextra -Werror -c utile.c -o utile.o
+cc -Wall -Wextra -Werror -o minishell main.o minishell.o utile.o
+make: Leaving directory `/Users/ibenmain/Desktop/minishell'
+ 

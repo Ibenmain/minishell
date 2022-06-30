@@ -6,7 +6,7 @@
 /*   By: ibenmain <ibenmain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 12:42:36 by ibenmain          #+#    #+#             */
-/*   Updated: 2022/06/28 16:24:03 by ibenmain         ###   ########.fr       */
+/*   Updated: 2022/06/30 16:52:55 by ibenmain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,18 @@
 # include <readline/history.h>
 
 typedef struct s_env{
+	char			*var;
 	char			*val;
 	struct s_env	*next;
 }	t_env;
 
+void	desplay_shell(t_env **env, char **data);
+void	init_env(t_env	*head, char **env);
+t_env	*ft_creat_node(char *data);
+char	*ft_val(char *data);
+char	*ft_key(char *data);
+int		ft_index_key(char *data);
+char	*ft_substr(char *s, unsigned int start, size_t len);
+void	ft_lstadd_back(t_env **alst, t_env *new);
+size_t	ft_strlen(char *s);
 #endif

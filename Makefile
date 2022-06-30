@@ -1,6 +1,8 @@
 NAME = minishell
 INC  = minishell.h
-SRCS = 	main.c
+SRCS = 	main.c \
+		minishell.c \
+		utile.c
 
 OBJS = $(SRCS:.c=.o)
 CFLAGS = -Wall -Wextra -Werror
