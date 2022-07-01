@@ -6,7 +6,7 @@
 /*   By: ibenmain <ibenmain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 12:42:36 by ibenmain          #+#    #+#             */
-/*   Updated: 2022/06/30 16:52:55 by ibenmain         ###   ########.fr       */
+/*   Updated: 2022/07/01 12:13:27 by ibenmain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,13 @@ typedef struct s_env{
 	struct s_env	*next;
 }	t_env;
 
-void	desplay_shell(t_env **env, char **data);
-void	init_env(t_env	*head, char **env);
+typedef struct s_all{
+	t_env	*env;
+}	t_all;
+
+
+void	desplay_shell(char **data);
+t_env	*init_env(char **env);
 t_env	*ft_creat_node(char *data);
 char	*ft_val(char *data);
 char	*ft_key(char *data);

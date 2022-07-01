@@ -6,7 +6,7 @@
 /*   By: ibenmain <ibenmain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 16:25:10 by ibenmain          #+#    #+#             */
-/*   Updated: 2022/06/30 17:54:51 by ibenmain         ###   ########.fr       */
+/*   Updated: 2022/07/01 12:20:25 by ibenmain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,25 +60,37 @@ t_env	*ft_creat_node(char *data)
 
 }
 
-void	init_env(t_env	*head, char **env)
+t_env	*init_env(char **env)
 {
 	int		i;
+	t_env	*head;
 
-	i = -1;
-	head = malloc(sizeof(t_env));
-	if (!head)
-		return ;
-	while (env[++i])
-		ft_lstadd_back(&head, ft_creat_node(env[i]));
-	while (head->next)
+	i = 0;
+	head = NULL;
+	while (env[i])
 	{
-		printf("%s=%s",head->val, head->val);
+		ft_lstadd_back(&head, ft_creat_node(env[i]));
+		i++;
 	}
-	
+	return (head);
 }
 
-void	desplay_shell(t_env **env, char **data)
+void	desplay_shell(char **data)
 {
+	t_env	*env;
+	char	*str;
+
+	env = malloc(sizeof(t_env));
+	if (!env)
+		return ;
+	env = init_env(data);
+	while (1)
+	{
+		str = readline("minishell->");
+		if (!str)
+			printf("Error");
+		add_history(str);
+	}
 	
-	init_env(*env, data);
+
 }

@@ -6,7 +6,7 @@
 /*   By: ibenmain <ibenmain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 12:42:32 by ibenmain          #+#    #+#             */
-/*   Updated: 2022/06/30 16:50:28 by ibenmain         ###   ########.fr       */
+/*   Updated: 2022/07/01 11:43:38 by ibenmain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ int	main(int argc, char **argv, char **env)
 	data = malloc(sizeof(t_env));
 	if (!data)
 		return (0);
-	desplay_shell(&data, env);
+	desplay_shell(env);
 	return (0);
 }
