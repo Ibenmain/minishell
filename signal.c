@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.c                                        :+:      :+:    :+:   */
+/*   signal.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibenmain <ibenmain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/28 16:25:10 by ibenmain          #+#    #+#             */
-/*   Updated: 2022/07/22 00:14:55 by ibenmain         ###   ########.fr       */
+/*   Created: 2022/07/21 23:35:03 by ibenmain          #+#    #+#             */
+/*   Updated: 2022/07/21 23:37:15 by ibenmain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	desplay_shell(char **data)
+void	sigint_handler(int sig)
 {
-	t_env	*env;
-	char	*str;
-
-	env = malloc(sizeof(t_env));
-	if (!env)
-		return ;
-	init_sig();
-	env = init_env(data);
-	while (1)
+	if (sig == SIGINT)
 	{
-		str = readline("\033[0;33m\e[1mMinishell ✗\e[0m\033[0m ");
-		if (!str)
-			return ;
-		add_history(str);
+		printf("\n");
+		rl_on_new_line();
+		rl_replace_line("", 0);
+		rl_redisplay();
 	}
+}
+
+void	init_sig(void)
+{
+	if (signal(SIGINT, sigint_handler))
+		return ;
+	if (signal(SIGQUIT, SIG_IGN))
+		return ;
 }

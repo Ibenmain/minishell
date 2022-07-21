@@ -2,7 +2,9 @@ NAME = minishell
 INC  = minishell.h
 SRCS = 	main.c \
 		minishell.c \
-		utile.c
+		utile.c \
+		signal.c\
+		environment.c
 
 OBJS = $(SRCS:.c=.o)
 CFLAGS = -Wall -Wextra -Werror
@@ -12,10 +14,10 @@ RM = rm -rf
 all : $(NAME)
 
 $(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) -o $(NAME) $^
+	$(CC) $(CFLAGS) -lreadline -lncurses $^ -o $(NAME) -L ~/goinfre/.brew/opt/readline/lib
 
-%.o: %.c $(INC)
-	@$(CC) $(CFLAGS) -c $< -o $@
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@ -I ~/goinfre/.brew/opt/readline/include
 
 clean :
 	@$(RM) $(OBJS)
