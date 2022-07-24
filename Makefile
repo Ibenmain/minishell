@@ -4,7 +4,8 @@ SRCS = 	main.c \
 		minishell.c \
 		utile.c \
 		signal.c\
-		environment.c
+		environment.c\
+		check_line.c
 
 OBJS = $(SRCS:.c=.o)
 CFLAGS = -Wall -Wextra -Werror

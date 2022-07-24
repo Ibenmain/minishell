@@ -6,7 +6,7 @@
 /*   By: ibenmain <ibenmain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 16:25:10 by ibenmain          #+#    #+#             */
-/*   Updated: 2022/07/22 00:14:55 by ibenmain         ###   ########.fr       */
+/*   Updated: 2022/07/24 11:55:07 by ibenmain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,7 @@ void	desplay_shell(char **data)
 		if (!str)
 			return ;
 		add_history(str);
+		check_line(str);
+		free(str);
 	}
 }
