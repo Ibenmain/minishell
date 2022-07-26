@@ -6,7 +6,7 @@
 /*   By: ibenmain <ibenmain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 23:35:03 by ibenmain          #+#    #+#             */
-/*   Updated: 2022/07/21 23:37:15 by ibenmain         ###   ########.fr       */
+/*   Updated: 2022/07/25 21:53:54 by ibenmain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	sigint_handler(int sig)
 	{
 		printf("\n");
 		rl_on_new_line();
-		rl_replace_line("", 0);
+		rl_replace_line(" ", 0);
 		rl_redisplay();
 	}
 }
