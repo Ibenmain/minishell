@@ -6,7 +6,7 @@
 /*   By: ibenmain <ibenmain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 12:42:36 by ibenmain          #+#    #+#             */
-/*   Updated: 2022/07/26 17:35:17 by ibenmain         ###   ########.fr       */
+/*   Updated: 2022/07/27 18:31:17 by ibenmain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,10 @@ char	*ft_substr(char *s, unsigned int start, size_t len);
 void	ft_lstadd_back(t_env **alst, t_env *new);
 size_t	ft_strlen(char *s);
 void	init_sig(void);
-void	check_line(char *line);
+void	check_line(char *line, t_env *env);
 int		get_index(char *str);
 t_tok	*tokens(char *str);
 void	ft_add_back(t_tok **alst, t_tok *new);
 t_tok	*get_rid(char *str);
+t_tok   *replace_env(t_tok *lst, t_env *env);
 #endif

@@ -6,7 +6,8 @@ SRCS = 	main.c \
 		signal.c\
 		environment.c\
 		check_line.c\
-		tokens.c
+		tokens.c\
+		replace_env.c
 
 OBJS = $(SRCS:.c=.o)
 CFLAGS = -Wall -Wextra -Werror
