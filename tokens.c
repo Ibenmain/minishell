@@ -6,7 +6,7 @@
 /*   By: ibenmain <ibenmain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 18:57:33 by ibenmain          #+#    #+#             */
-/*   Updated: 2022/07/26 17:36:17 by ibenmain         ###   ########.fr       */
+/*   Updated: 2022/07/27 02:56:06 by ibenmain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,15 +83,27 @@ t_tok	*tokens(char *str)
 	head = NULL;
 	while (str[i])
 	{
-		if (str[i] == '>' || str[i] == '<' || str[i] == '|' || (str[i] == '>' && str[i + 1] == '>'))
+		if (str[i] == '>' || str[i] == '<' || str[i] == '|' || str[i] == ' ')
 		{
-			ft_add_back(&head, get_rid(&str[i]));
+			if ((str[i] == '>' && str[i + 1] == '>')
+				|| (str[i] == '<' && str[i + 1] == '<'))
+			{
+				j = i;
+				while ((str[i] && str[i] == '>') || str[i] == '<')
+					i++;
+				ft_add_back(&head, creat_token(i, j, str));
+			}
+			else
+				ft_add_back(&head, get_rid(&str[i]));
 			i++;
 		}
 		else
 		{
+			while (str[i] == ' ')
+				i++;
 			j = i;
-			while (str[i] && str[i] != '>' && str[i] != '<' && str[i] != '|')
+			while (str[i] && str[i] != '>'
+				&& str[i] != '<' && str[i] != '|' && str[i] != ' ')
 				i++;
 			ft_add_back(&head, creat_token(i, j, str));
 		}
