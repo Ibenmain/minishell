@@ -6,7 +6,7 @@
 /*   By: ibenmain <ibenmain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 18:57:33 by ibenmain          #+#    #+#             */
-/*   Updated: 2022/07/27 02:56:06 by ibenmain         ###   ########.fr       */
+/*   Updated: 2022/07/29 23:39:18 by ibenmain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,15 @@ t_tok	*get_rid(char *str)
 
 /*------------------------------------------------------------------*/
 
+void	print_error(char *s)
+{
+	int	i;
+
+	i = -1;
+	while (s[++i])
+		write(1, &s[i], 1);
+}
+
 t_tok	*creat_token(int i, int j, char *str)
 {
 	t_tok	*lst;
@@ -83,7 +92,8 @@ t_tok	*tokens(char *str)
 	head = NULL;
 	while (str[i])
 	{
-		if (str[i] == '>' || str[i] == '<' || str[i] == '|' || str[i] == ' ')
+		if (str[i] == '>' || str[i] == '<' || str[i] == '|'
+			|| str[i] == ' ' || str[i] == '"' || str[i] == '\'')
 		{
 			if ((str[i] == '>' && str[i + 1] == '>')
 				|| (str[i] == '<' && str[i + 1] == '<'))
@@ -92,6 +102,22 @@ t_tok	*tokens(char *str)
 				while ((str[i] && str[i] == '>') || str[i] == '<')
 					i++;
 				ft_add_back(&head, creat_token(i, j, str));
+			}
+			else if (str[i] == '"' || str[i] == '\'')
+			{
+				j = i;
+				if (str[i++] == '"')
+				{
+					while (str[i] != '"')
+						i++;
+					ft_add_back(&head, creat_token(i + 1, j, str));
+				}
+				else
+				{
+					while (str[i] != '\'')
+						i++;
+					ft_add_back(&head, creat_token(i + 1, j, str));
+				}
 			}
 			else
 				ft_add_back(&head, get_rid(&str[i]));
