@@ -6,7 +6,7 @@
 /*   By: ibenmain <ibenmain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 18:57:33 by ibenmain          #+#    #+#             */
-/*   Updated: 2022/08/06 18:01:23 by ibenmain         ###   ########.fr       */
+/*   Updated: 2022/08/06 21:01:38 by ibenmain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,7 +168,7 @@ int	check_space(char *str, int i)
 	return (i);
 }
 
-t_tok	*tokens(char *str)
+t_tok	*ft_tokens(char *str)
 {
 	int				i;
 	int				j;
