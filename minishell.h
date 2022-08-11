@@ -6,7 +6,7 @@
 /*   By: ibenmain <ibenmain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 12:42:36 by ibenmain          #+#    #+#             */
-/*   Updated: 2022/08/06 21:08:55 by ibenmain         ###   ########.fr       */
+/*   Updated: 2022/08/11 00:22:24 by ibenmain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,16 @@
 # include "readline/readline.h"
 # include "readline/history.h"
 
+typedef enum s_enum
+{
+	WORD,
+	PIPE,
+	OUT_RED,
+	IN_RED,
+	D_QOUT,
+	S_QOUT,
+}	t_enum;
+
 typedef struct s_env{
 	char			*var;
 	char			*val;
@@ -35,6 +45,7 @@ typedef struct s_env{
 
 typedef struct s_tok{
 	char			*value;
+	int				type;
 	struct s_tok	*next;
 }	t_tok;
 
@@ -58,5 +69,6 @@ int		get_index(char *str);
 t_tok	*ft_tokens(char *str);
 void	ft_add_back(t_tok **alst, t_tok *new);
 t_tok	*get_rid(char *str);
-t_tok   *replace_env(t_tok *lst, t_env *env);
+t_tok	*replace_env(t_tok *lst, t_env *env);
+
 #endif
