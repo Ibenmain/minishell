@@ -6,40 +6,11 @@
 /*   By: ibenmain <ibenmain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 17:23:43 by ibenmain          #+#    #+#             */
-/*   Updated: 2022/08/11 01:44:06 by ibenmain         ###   ########.fr       */
+/*   Updated: 2022/08/11 16:18:56 by ibenmain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
-int	ft_strncmp(char *str1, int i, char *str2)
-{
-	int	j;
-
-	j = 0;
-	while ((str1[i] && str1[i] != '$') || str2[j])
-	{
-		if (str1[i] != str2[j])
-			return (1);
-		i++;
-		j++;
-	}
-	return (0);
-}
-
-int	ft_strcmp(char *str1, char *str2)
-{
-	int	j;
-
-	j = 0;
-	while (str1[j] || str2[j])
-	{
-		if (str1[j] != str2[j])
-			return (1);
-		j++;
-	}
-	return (0);
-}
 
 char	*ft_get_value_of_env(char *line, int i, t_env *env)
 {
@@ -95,48 +66,6 @@ char	*ft_get_copy(char *str, char *line, int i)
 		j++;
 	}
 	return (line);
-}
-
-char	*ft_check_qout(char *str)
-{
-	int		i;
-	int		qout;
-	char	*s;
-
-	i = 0;
-	qout = -1;
-	s = malloc(sizeof(char *));
-	if (!s)
-		return (NULL);
-	if (str[0] == '"' || str[0] == '\'')
-	{
-		qout = 1;
-		i++;
-		while (str[i] == '"')
-			i++;
-		while (str[i] && str[i] != '"' && str[i] != '\'')
-		{
-			if (str[i + 1] == '"')
-				qout = 0;
-			i++;
-		}
-		if (qout == 1)
-			return (ft_substr(str, 1, i));
-		else if (qout == 0)
-			return (ft_substr(str, 1, i - 1));
-	}
-	else
-	{
-		while (str[i] && str[i] != '"' && str[i] != '\'')
-		{
-			if (str[i + 1] == '"')
-				qout = 0;
-			i++;
-		}
-		if (qout == 0)
-			return (ft_substr(str, 0, i));
-	}
-	return (str);
 }
 
 t_tok	*replace_env(t_tok *lst, t_env *env)

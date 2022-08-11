@@ -6,7 +6,7 @@
 /*   By: ibenmain <ibenmain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 16:26:21 by ibenmain          #+#    #+#             */
-/*   Updated: 2022/07/25 19:39:02 by ibenmain         ###   ########.fr       */
+/*   Updated: 2022/08/11 15:10:59 by ibenmain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,35 @@ size_t	ft_strlen(char *s)
 		len++;
 	}
 	return (len);
+}
+
+int	ft_strncmp(char *str1, int i, char *str2)
+{
+	int	j;
+
+	j = 0;
+	while ((str1[i] && str1[i] != '$') || str2[j])
+	{
+		if (str1[i] != str2[j])
+			return (1);
+		i++;
+		j++;
+	}
+	return (0);
+}
+
+int	ft_strcmp(char *str1, char *str2)
+{
+	int	j;
+
+	j = 0;
+	while (str1[j] || str2[j])
+	{
+		if (str1[j] != str2[j])
+			return (1);
+		j++;
+	}
+	return (0);
 }
 
 void	ft_lstadd_back(t_env **alst, t_env *new)

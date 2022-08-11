@@ -3,11 +3,14 @@ INC  = minishell.h
 SRCS = 	main.c \
 		minishell.c \
 		utile.c \
+		utile2.c\
 		signal.c\
 		environment.c\
 		check_line.c\
 		tokens.c\
-		replace_env.c
+		replace_env.c\
+		riderection.c\
+		check_quot.c
 
 OBJS = $(SRCS:.c=.o)
 CFLAGS = -Wall -Wextra -Werror

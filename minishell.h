@@ -6,7 +6,7 @@
 /*   By: ibenmain <ibenmain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 12:42:36 by ibenmain          #+#    #+#             */
-/*   Updated: 2022/08/11 00:22:24 by ibenmain         ###   ########.fr       */
+/*   Updated: 2022/08/11 16:19:51 by ibenmain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ char	*ft_key(char *data);
 int		ft_index_key(char *data);
 char	*ft_substr(char *s, unsigned int start, size_t len);
 void	ft_lstadd_back(t_env **alst, t_env *new);
+void	ft_add_back(t_tok **alst, t_tok *new);
 size_t	ft_strlen(char *s);
 void	init_sig(void);
 void	check_line(char *line, t_env *env);
@@ -70,5 +71,16 @@ t_tok	*ft_tokens(char *str);
 void	ft_add_back(t_tok **alst, t_tok *new);
 t_tok	*get_rid(char *str);
 t_tok	*replace_env(t_tok *lst, t_env *env);
+int		ft_strncmp(char *str1, int i, char *str2);
+int		ft_strcmp(char *str1, char *str2);
+int		check_space(char *str, int i);
+int		ft_get_great(char *str, int i, t_tok **head);
+int		ft_get_less(char *str, int i, t_tok **head);
+int		ft_get_pipe(char *str, int i, t_tok **head);
+int		ft_get_double(char *str, int i, t_tok **head);
+int		ft_get_single(char *str, int i, t_tok **head);
+int		ft_get_word(char *str, int i, t_tok **head);
+t_tok	*creat_token(int start, int len, char *str, int typ);
+char	*ft_check_qout(char *str);
 
 #endif

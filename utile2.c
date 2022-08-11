@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_line.c                                       :+:      :+:    :+:   */
+/*   utile2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibenmain <ibenmain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/22 17:20:02 by ibenmain          #+#    #+#             */
-/*   Updated: 2022/08/11 15:06:32 by ibenmain         ###   ########.fr       */
+/*   Created: 2022/08/11 15:12:43 by ibenmain          #+#    #+#             */
+/*   Updated: 2022/08/11 15:16:43 by ibenmain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	check_line(char *line, t_env *env)
+void	ft_add_back(t_tok **alst, t_tok *new)
 {
-	t_tok	*lst;
+	t_tok	*ptr;
 
-	(void)env;
-	lst = (t_tok *)malloc(sizeof(t_tok *));
-	if (!lst)
-		return ;
-	lst = ft_tokens(line);
-	lst = replace_env(lst, env);
-	while (lst)
+	if (*alst == NULL)
 	{
-		printf("%d ", lst->type);
-		printf("%s\n", lst->value);
-		lst = lst->next;
+		*alst = new;
+		new = NULL;
 	}
+	else
+	{
+		ptr = *alst;
+		while (ptr->next != NULL)
+			ptr = ptr->next;
+		ptr->next = new;
+	}
+}
+
+int	check_space(char *str, int i)
+{
+	while (str[i] == ' ')
+		i++;
+	return (i);
 }
