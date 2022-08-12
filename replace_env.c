@@ -6,7 +6,7 @@
 /*   By: ibenmain <ibenmain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 17:23:43 by ibenmain          #+#    #+#             */
-/*   Updated: 2022/08/11 16:18:56 by ibenmain         ###   ########.fr       */
+/*   Updated: 2022/08/12 19:29:52 by ibenmain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ t_tok	*replace_env(t_tok *lst, t_env *env)
 	while (tmp)
 	{
 		i = 0;
-		tmp->value = ft_check_qout(tmp->value);
+		//tmp->value = ft_check_qout(tmp->value);
 		while (tmp->value[i])
 		{
 			if (tmp->value[i] == '$')

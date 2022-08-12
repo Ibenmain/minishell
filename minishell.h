@@ -6,7 +6,7 @@
 /*   By: ibenmain <ibenmain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 12:42:36 by ibenmain          #+#    #+#             */
-/*   Updated: 2022/08/11 16:19:51 by ibenmain         ###   ########.fr       */
+/*   Updated: 2022/08/12 21:07:46 by ibenmain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,7 @@ int		ft_get_single(char *str, int i, t_tok **head);
 int		ft_get_word(char *str, int i, t_tok **head);
 t_tok	*creat_token(int start, int len, char *str, int typ);
 char	*ft_check_qout(char *str);
+char	*ft_check_all_error(char *str);
+char	*ft_strtrim(char *s1, char *set);
 
 #endif

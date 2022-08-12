@@ -10,7 +10,8 @@ SRCS = 	main.c \
 		tokens.c\
 		replace_env.c\
 		riderection.c\
-		check_quot.c
+		check_quot.c\
+		check_all_error.c
 
 OBJS = $(SRCS:.c=.o)
 CFLAGS = -Wall -Wextra -Werror

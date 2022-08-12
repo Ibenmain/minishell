@@ -6,7 +6,7 @@
 /*   By: ibenmain <ibenmain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 16:18:13 by ibenmain          #+#    #+#             */
-/*   Updated: 2022/08/11 17:09:16 by ibenmain         ###   ########.fr       */
+/*   Updated: 2022/08/12 01:24:14 by ibenmain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*ft_check_scend_quot2(char *str, int i, int quot)
 	while (str[i] && str[i] != '"' && str[i] != '\'')
 	{
 		if (str[i + 1] == '"')
-			quot = 0;
+			return ("");
 		i++;
 	}
 	if (quot == 0)

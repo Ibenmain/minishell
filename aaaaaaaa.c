@@ -6,7 +6,7 @@
 /*   By: ibenmain <ibenmain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 18:57:33 by ibenmain          #+#    #+#             */
-/*   Updated: 2022/07/30 15:46:26 by ibenmain         ###   ########.fr       */
+/*   Updated: 2022/08/12 19:34:25 by ibenmain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,4 +135,22 @@ t_tok	*tokens(char *str)
 		}
 	}
 	return (head);
+}
+//--------------------------------double quote-------------------------//
+int	ft_get_double(char *str, int i, t_tok **head)
+{
+	int	j;
+
+	if (str[i] == '"' && str[i + 1] == '"')
+		ft_add_back(head, creat_token(i, 2, str, D_QOUT));
+	else
+	{
+		j = i;
+		i = i + 1;
+		while (str[i] && str[i] != '"')
+			i++;
+		ft_add_back(head, creat_token(j, (i - j) + 1, str, D_QOUT));
+		return (i + 1);
+	}
+	return (i + 2);
 }
